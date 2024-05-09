@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>To Do List</h1>
+    <input type="text" id="todoInput" placeholder="Enter To Do">
+    <button onclick="addtodo()">Add</button>
+    <p id="todoList"></p>
+    <br>
+    <table border="2px solid black" id="table">
+        <thead>
+        <th>
+            list of tasks
+        </th>
+    </thead>
+   <tbody>
+
+   </tbody>
+    </table>
+    <script>
+    let a=[]
+        
+   function addtodo(){
+    let input=document.getElementById("todoInput");
+    let text=input.value;
+    let value=a.push({name:text})
+ 
+    console.log(value)
+  // console.log(a.concat(text))
+    //creating list
+    let newlist=document.createElement("p");
+    let userInput=document.createTextNode(text);
+    newlist.appendChild(userInput)
+    //remove 
+    var removebutton=document.createElement("button");
+    removebutton.innerHTML="remove";
+    removebutton.onclick=function(){
+        this.parentNode.remove();
+    } 
+newlist.appendChild(removebutton);
+ let todo=document.getElementById("todoList")
+ todo.appendChild(newlist)
+ input.value="";
+
+ let table=document.getElementById("table")
+ let td=document.createElement("td")
+ td.innerHTML=value
+ table.appendChild(td)
+
+
+}
+    </script>
+</body>
+</html>

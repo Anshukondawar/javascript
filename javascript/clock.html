@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500&display=swap" rel="stylesheet">
+<style>
+    body{
+        background-color:black ;
+        font-family: "Oswald", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: 500;
+        font-style: normal;
+    }
+    #dgclock{
+        
+        margin: auto;
+        text-align: center;
+        width: 258px;
+        top: 167px;
+    position: relative;
+    }
+    #digital,#date{
+        font-size: 18px;
+        font-weight: 600;
+    }
+    h3{
+    font-weight: 400;
+    font-size: 34px;
+    color: rgb(106, 150, 233);
+    text-shadow: 2px 2px 4px #511730;
+    }
+    .ids{
+        color: crimson;
+        border: 3px solid transparent;
+         border-image: linear-gradient(to right,rgb(90, 162, 185),rgb(199, 89, 105));
+         border-radius: 13px;
+         border-image-slice: 1;
+    }
+</style>
+<body>
+    <div id="dgclock">
+    <h3>Digital Clock</h3>
+    <div class="ids">
+    <p id="digital" onload="showtime()"></p>
+    <p id="date"></p>
+    </div>
+    </div>
+    <script>
+        function showtime(){
+  let clock=document.getElementById("digital")
+  let days=document.getElementById("date")
+  const date=new Date();
+  let hours=date.getHours();
+  let merdian=hours<=12 ? "A.M" :"P.M";
+  hours=hours<=12 ? hours : (hours>12? hours-12:0);
+ hours= hours<10 ? '0'+hours:hours
+  let minutes=date.getMinutes();
+ let seconds=date.getSeconds();
+ seconds= seconds<10 ? '0'+seconds:seconds
+  let weekday=["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+  let day=weekday[date.getDay()];
+  let normaldate=date.getDate()
+  minutes= minutes<10 ? '0'+minutes:minutes
+  let month=date.getMonth()+1;
+  let year=date.getFullYear()
+  month= month<10 ? '0'+month:month
+  normaldate= normaldate<10 ? '0'+normaldate:normaldate
+  clock.textContent=`${hours}:${minutes}:${seconds} ${merdian} `
+  clock.innerHTML=`${hours}:${minutes}:${seconds} ${merdian}`
+  days.textContent=`${day}  ${normaldate}-${month}-${year} `
+  setTimeout(showtime,1000)
+        }
+        showtime()
+    </script>
+</body>
+
+</html

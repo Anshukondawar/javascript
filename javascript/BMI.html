@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{
+        background-color: rgb(176, 141, 209);
+        margin: 0;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+    }
+    h3{
+        font-size: 28px;
+        color:rgb(176, 141, 209);
+    }
+    .bmi{
+        border: none;
+        background-color: white;
+        display: flex;
+        flex-wrap: wrap;
+        width: 34vw;
+        height: 70vh;
+        margin-top: 2%;
+        margin-left: 34%;
+        text-align: center;
+        justify-content: center;
+    }
+    .bmi p{
+        font-size: 24px;
+        font-weight: 600;
+        color:rgb(176, 141, 209);
+    }
+    .bmi span{
+        font-size: 18px;
+        font-weight: 400;
+    }
+    .bmi input[type="text"]{
+        height: 37px;
+        font-size: 17px;
+        border: 1px solid rgb(176, 141, 209);
+        border-radius: 3px;
+        color:  rgb(176, 141, 209);
+        text-align: center;
+    }
+    .bmi button{
+        position: relative;
+        top: 20px;
+        width:10vw;
+        height: 50px;
+        cursor: pointer;
+        border: 1px solid rgb(176, 141, 209);
+        font-size: 18px;
+        border-radius: 5px;
+        background-color:  rgb(176, 141, 209);
+        font-weight: 500;
+        color: white;
+        text-wrap: wrap;
+
+    }
+    #appendp{
+      position: relative;
+      color: white;
+      top: 74px;
+  
+    }
+      .totalAns, .p1{
+        display: flex;
+        justify-content: center;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        font-size: 30px;
+        color: white;
+        font-weight: 500;
+
+      }
+      @media screen and (max-width:700px){
+        .bmi{
+    border: none;
+    background-color: white;
+    display: flex;
+    flex-wrap: wrap;
+    width: 65vw;
+    height: 73vh;
+    margin-top: 12%;
+    margin-left: 19%;
+    text-align: center;
+    justify-content: center;
+    flex: 1 2 200px;
+        }
+     .bmi button{
+    position: relative;
+    top: 20px;
+    width: 21vw;
+    height: 50px;
+    cursor: pointer;
+    border: 1px solid rgb(176, 141, 209);
+    font-size: 18px;
+    border-radius: 5px;
+    background-color: rgb(176, 141, 209);
+    font-weight: 500;
+    color: white;
+    text-wrap: wrap;
+    /* gap: 3px; */
+    margin-left: 2vw;
+        }
+      }
+      @media screen and (max-width:365px){
+       h3{
+        font-size: 24px;
+       }
+       .bmi p{
+        font-size: 18px;
+       }
+       .bmi input[type="text"]{
+        width: 75%;
+        font-size: 14px;
+       }
+       .bmi{
+        height: 58vh;
+        margin-top: 37%;
+       }
+       .bmi button{
+        font-size: 14px;
+       }
+      }
+</style>
+<body>
+    <div class="bmi">
+        <div class="result">
+    <h3>BMI calculator</h3>
+    <p>Height <span style="font-size: 14px; font-weight:400; color:rgb(176, 141, 209);">(CM)</span></p>
+    <input type="text" placeholder="Enter your Height" id="addToResult">
+    <p>Weight <span style="font-size: 14px; font-weight:400; color:rgb(176, 141, 209);">(KG)</span></p>
+    <input type="text" placeholder="Enter your Weight" id="addToResult1">
+    <br>
+    <br>
+    <button id="btn" onclick="calculate()">Submit</button>
+    <button id="btn1" onclick="clearres()">Clear</button>
+    <div>
+    <p id="appendp"></p>
+    </div>
+    </div>
+    </div>
+    <script>
+        function calculate(){
+            let ans=document.getElementById('addToResult').value;
+            let ans1=document.getElementById('addToResult1').value;
+            let a=(ans*0.01).toFixed(1)
+           let final=(ans1/(a*a)).toFixed(1)
+           let appendtop=document.getElementById("appendp");
+          let p=document.createElement('p')
+          p.className="totalAns"
+        p.textNode="Your BMI value is " + final + `\n`;
+        appendtop.appendChild(document.createTextNode(p.textNode))
+          let para=document.createElement('p')
+          para.className="p1";
+          console.log(para)
+          if(final<=18.5){
+            para.textNode="\n and fall under Underweight"
+          }
+          else if(final>=18.5 && final<=24.9){
+            para.textNode=" "+"\n and fall under Normalweight"
+          }
+          else if(final>24.9){
+            para.textNode="\n and fall under Overweight"
+          }
+          appendtop.appendChild(document.createTextNode(para.textNode))
+        
+          
+        }
+
+    function clearres(){
+      appendp.parentNode.remove();
+      document.getElementById("addToResult").value=" ";
+      document.getElementById("addToResult1").value=" ";
+    }
+    
+
+    </script>
+</body>
+</html>

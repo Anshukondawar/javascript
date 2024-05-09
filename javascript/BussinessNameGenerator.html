@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+<style>
+    body{
+       background: linear-gradient(to left,#8787fa,#f08282);
+    }
+    #generator{
+        text-align: center;
+            position: relative;
+            top: 70px;
+    }
+    h3{
+        font-size: 26px;
+        color: #6767c7;
+    }
+    p{
+        font-size: 20px;
+        color: #8d4d4d;
+        font-weight: 600;
+    }
+    span{
+        color: #6767c7;
+    }
+    #div{
+        height: 52px;
+        width: 406px;
+        display: flex;
+        border: 1px solid black;
+        align-items: center;
+        padding: 5px;
+        position: relative;
+        text-align: center;
+        left: 407px;
+        margin-bottom: 10px;
+        
+    }
+    div input{
+        font-size: 20px;
+    border: none;
+    font-family: 'Times New Roman', Times, serif;
+    color: #6767c7 !important;
+    margin-left: 8px;
+    width: 279px;
+    height: 36px;
+    flex: 1;
+    outline: none;
+    mix-blend-mode: multiply;
+    
+    }
+    div>i{
+        font-size: 28px;
+        color: #6767c7!important;
+    }
+    #generate{
+        position: relative;
+    left: 86px;
+    height: 64px;
+    font-size: 16px;
+    border: 1px solid black;
+    background-color: #6767c7;
+    font-weight: 600;
+    color: #8d4d4d;
+    font-weight: 600;
+    }
+
+</style>
+<body>
+    <div id="generator">
+        <h3>BUSSINESS NAME GENERATOR</h3>
+        <p>Enter any <span>WORD</span> to generate <span>BUSSINESS NAMES</span> </p>
+        <div id="div">
+        <i class="bi bi-search"></i>
+        <input style="font-family: 'Times New Roman', Times, serif ; color:black;" type="text" id="userinput" placeholder="Enter words and click generate....">
+        <button onclick="clickme()" id="generate">Generate</button>
+        </div>
+        <p id="append"></p>  
+    </div>
+    <script>
+        function clickme(){
+           
+            const obj=[
+                 'Pretty',
+                'Bright',
+                 'Vibrant',
+                 'Agile',
+                 'Fresh',
+                 'Quantum',
+                 'Attractive',
+                 'Elite',
+                 'Tranquil',
+                 'Wholesome'
+               ]
+               function getrandom(){
+               let math=Math.floor(Math.random()*10);
+               return obj[math]
+               }
+            let random1=getrandom();
+            console.log(random1)
+
+            //appending entered word
+            let p=document.getElementById("userinput")
+            let random2=p.value;
+            console.log(random2);
+
+            //generating 3rd word
+            const obj1=[
+            'experiances',
+           'solutions',
+            'innovations',
+            'services',
+            'systems',
+            'venture',
+            'private limited',
+            'Events',
+            'agency',
+            'organisation'
+          ]
+          function getrandom1(){
+          let math=Math.floor(Math.random()*10);
+          return obj1[math]
+          }
+       let random3=getrandom1();
+       console.log(random3)
+
+        let res=random1+" "+random2+" "+random3;
+
+        //appending to p
+        let create=document.getElementById("append")
+        create.innerHTML=res;
+        create.style.color="#6767c7"
+        p.value=""
+        }   
+ </script>
+</body>
+</html>
